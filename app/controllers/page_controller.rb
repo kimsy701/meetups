@@ -1,5 +1,7 @@
 class PageController < ApplicationController
 	def index
+		@users = User.all
+		@meetups = Meetup.all
 	end
 
 	def profile
@@ -18,6 +20,7 @@ class PageController < ApplicationController
 
 	def create
 		m = Meetup.create(meetup_params)
+		current_user.meetup_memberships.create(meetup: m)
 		redirect_to controller: "page" ,action: "index"
 	end
 

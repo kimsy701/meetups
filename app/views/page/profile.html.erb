@@ -1,0 +1,7 @@
+
+<h3><%= current_user.email %>님이 참여하고 있는 모임:</h3>
+<br class="clear">
+<% current_user.meetups.each do |m| %>
+	<%= m.name %> | <%= m.short_desc %>
+<br class="clear">
+<% end %>

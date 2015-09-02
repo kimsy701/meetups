@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902095430) do
+ActiveRecord::Schema.define(version: 20150902125024) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "meetup_memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "meetup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "meetup_memberships", ["meetup_id"], name: "index_meetup_memberships_on_meetup_id"
+  add_index "meetup_memberships", ["user_id"], name: "index_meetup_memberships_on_user_id"
 
   create_table "meetups", force: :cascade do |t|
     t.integer  "category_id"
@@ -40,8 +50,6 @@ ActiveRecord::Schema.define(version: 20150902095430) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "ownership"
-    t.integer  "participation"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

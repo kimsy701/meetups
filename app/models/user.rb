@@ -4,5 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :meetups
+  has_many :meetups , through: :meetup_memberships
+  has_many :meetup_memberships
+
 end
