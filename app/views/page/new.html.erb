@@ -1,0 +1,7 @@
+<%= form_for :meetup, url: { action: "create" } do |f| %>
+  모임 이름 :  <%= f.text_field :name %><br />
+  간단한 설명 : <%= f.text_field :short_desc %><br />
+  설명  : <%= f.text_area :long_desc %><br />
+  카테고리   : <%= f.text_field :category_id %><br />
+  <%= f.submit %>
+<% end %>

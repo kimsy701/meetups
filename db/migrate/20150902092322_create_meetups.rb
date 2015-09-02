@@ -9,6 +9,9 @@ class CreateMeetups < ActiveRecord::Migration
       t.string :short_desc
       # 모임에 대한 긴 설명
       t.text :long_desc
+      # 모임 참여자
+      t.integer :contributors , array: true
+
       t.timestamps created_at: false
     end
   end
