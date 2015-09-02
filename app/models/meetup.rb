@@ -1,4 +1,4 @@
 class Meetup < ActiveRecord::Base
-	has_many :users
 	belongs_to :category
+    has_many :users
 end
