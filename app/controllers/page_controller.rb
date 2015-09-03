@@ -9,7 +9,7 @@ class PageController < ApplicationController
 
 	def category
 		@category = Meetup.all
-		@study = Category.find(1).meetups.all
+		
 	end
 
 	def meetup
